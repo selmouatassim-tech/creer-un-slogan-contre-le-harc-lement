@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Bilan final – Mon slogan</title>
+
+<style>
+/* BASE */
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #f6f0ff, #e6f7ff);
+    padding: 30px;
+    color: #222;
+}
+
+/* CONTENEUR CENTRAL */
+.bilan {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* TITRE */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #5a2d82;
+    margin-bottom: 10px;
+}
+
+.sous-titre {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* IDENTITÉ */
+.identite {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.identite input {
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 8px;
+    border: 1.5px solid #aaa;
+}
+
+/* SECTIONS */
+.section {
+    border-radius: 16px;
+    padding: 22px;
+    margin: 25px 0;
+}
+
+.page1 { background: #fff4d6; border-left: 8px solid #e0a800; }
+.page2 { background: #e9f1fb; border-left: 8px solid #1e6fb8; }
+.page3 { background: #edf7ee; border-left: 8px solid #2e7d32; }
+.page4 { background: #fdecef; border-left: 8px solid #c2185b; }
+.page5 { background: #f3e8ff; border-left: 8px solid #7b1fa2; }
+.page6 { background: #e0f7fa; border-left: 8px solid #00838f; }
+
+/* TITRES DE SECTIONS */
+.section h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+/* RÉPONSES */
+.reponse {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* SLOGAN FINAL */
+.slogan-final {
+    font-size: 26px;
+    font-weight: bold;
+    color: #5a2d82;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* BOUTON */
+.actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.actions button {
+    background-color: #5a2d82;
+    color: #fff;
+    font-size: 18px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media print {
+    .actions {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bilan">
+
+<h1>Bilan final</h1>
+<div class="sous-titre">Mon parcours de création de slogans</div>
+
+<!-- IDENTITÉ -->
+<div class="identite">
+    <input placeholder="Nom de l’élève">
+    <input placeholder="Prénom de l’élève">
+</div>
+
+<!-- PAGE 1 -->
+<div class="section page1">
+<h2>Page 1 – Transformer une phrase en slogan</h2>
+<div class="reponse">• Phrase 1 : <span id="p1_ex1"></span></div>
+<div class="reponse">• Phrase 2 : <span id="p1_ex2"></span></div>
+<div class="reponse">• Slogan 1 : <span id="p1_slogan1"></span></div>
+<div class="reponse">• Slogan 2 : <span id="p1_slogan2"></span></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="section page2">
+<h2>Page 2 – Le slogan en opposition</h2>
+<div class="reponse">• Phrase 1 : <span id="p2_ex1"></span></div>
+<div class="reponse">• Phrase 2 : <span id="p2_ex2"></span></div>
+<div class="reponse">• Mon slogan : <span id="p2_slogan"></span></div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="section page3">
+<h2>Page 3 – Le slogan avec une image</h2>
+<div class="reponse">• Image choisie : <span id="p3_image"></span></div>
+<div class="reponse">• Effet ressenti : <span id="p3_effet"></span></div>
+<div class="reponse">• Mon slogan : <span id="p3_slogan"></span></div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="section page4">
+<h2>Page 4 – Le slogan avec une règle claire</h2>
+<div class="reponse">• Phrase : <span id="p4_phrase"></span></div>
+<div class="reponse">• Hashtag : <span id="p4_hashtag"></span></div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="section page5">
+<h2>Page 5 – Le slogan qui aide la victime</h2>
+<div class="reponse">• Message : <span id="p5_message"></span></div>
+<div class="reponse">• Mon slogan : <span id="p5_slogan"></span></div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="section page6">
+<h2>Page 6 – Mon slogan final</h2>
+<div class="slogan-final">
+<span id="p6_slogan"></span>
+</div>
+</div>
+
+<div class="actions">
+<button onclick="window.print()">Imprimer le bilan final</button>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll("span").forEach(el => {
+    el.textContent = sessionStorage.getItem(el.id) || "";
+});
+</script>
+
+</body>
+</html>

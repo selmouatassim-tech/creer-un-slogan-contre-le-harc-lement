@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Le slogan qui aide la victime</title>
+
+<style>
+/* BASE */
+body {
+    font-family: Arial, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f2f4f8, #e3ebf5);
+    padding: 30px;
+    color: #222;
+}
+
+/* CONTENEUR */
+.fiche {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* EN-TÊTE AVEC LOGOS */
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.header img {
+    height: 70px;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #5a2d82;
+    margin: 0;
+}
+
+/* BLOCS COULEURS */
+.bloc {
+    border-radius: 14px;
+    padding: 22px;
+    margin: 28px 0;
+}
+
+.objectif {
+    background: #fff4d6;
+    border-left: 8px solid #e0a800;
+}
+
+.principe {
+    background: #e9f1fb;
+    border-left: 8px solid #1e6fb8;
+}
+
+.exercice1 {
+    background: #edf7ee;
+    border-left: 8px solid #2e7d32;
+}
+
+.exercice2 {
+    background: #fdecef;
+    border-left: 8px solid #c2185b;
+}
+
+/* TITRES */
+h2 {
+    margin-top: 0;
+    font-size: 23px;
+}
+
+/* PHRASES */
+.phrase {
+    margin: 18px 0;
+    font-size: 18px;
+}
+
+/* MOTS À CHOISIR */
+.mots-choix {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    margin: 15px 0;
+    color: #2e7d32;
+}
+
+/* CHAMPS */
+input {
+    width: 100%;
+    height: 42px;
+    font-size: 18px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1.5px solid #bbb;
+    padding: 6px 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #5a2d82;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.actions a {
+    background-color: #1e6fb8;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+@media print {
+    .actions {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="fiche">
+
+    <div class="header">
+        <img src="Assets/logo-phare.jpeg" alt="Logo du programme pHARe">
+        <h1>Le slogan qui aide la victime</h1>
+        <img src="Assets/logo-duhamel.jpeg" alt="Logo du collège Georges Duhamel">
+    </div>
+
+    <div class="bloc objectif">
+        <h2>Objectif</h2>
+        Créer un slogan qui rassure et donne une solution.
+    </div>
+
+    <div class="bloc principe">
+        <h2>Principe</h2>
+        Un slogan peut dire :
+        <ul>
+            <li>tu n’es pas seul</li>
+            <li>parle</li>
+            <li>demande de l’aide</li>
+        </ul>
+    </div>
+
+    <div class="bloc exercice1">
+        <h2>Exercice 1 : Complète</h2>
+
+        <div class="mots-choix">
+            parler / aide / adulte / professeur
+        </div>
+
+        <div class="phrase">
+            Quand ça ne va pas, il faut __________.
+            <input id="p5_completer" type="search">
+        </div>
+    </div>
+
+    <div class="bloc exercice2">
+        <h2>Exercice 2 : Message complet</h2>
+
+        <div class="phrase">
+            Si tu souffres, __________.
+            <input id="p5_message" type="search">
+        </div>
+
+        <div class="phrase">
+            <strong>Mon slogan :</strong>
+            <input id="p5_slogan" type="search">
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="page4.html">Retour à la page 4</a>
+        <a href="page6.html">Aller à la page 6</a>
+    </div>
+
+</div>
+
+<script>
+// Lecture + écriture UNIQUEMENT dans sessionStorage
+document.querySelectorAll("input").forEach(el => {
+    el.value = sessionStorage.getItem(el.id) || "";
+    el.addEventListener("input", () => {
+        sessionStorage.setItem(el.id, el.value);
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Transformer une phrase simple en slogan</title>
+
+<style>
+/* BASE */
+body {
+    font-family: Arial, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f2f4f8, #e3ebf5);
+    padding: 30px;
+    color: #222;
+}
+
+/* CONTENEUR */
+.fiche {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* EN-TÊTE AVEC LOGOS */
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.header img {
+    height: 70px;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #5a2d82;
+    margin: 0;
+}
+
+/* BLOCS COULEURS */
+.bloc {
+    border-radius: 14px;
+    padding: 22px;
+    margin: 28px 0;
+}
+
+.objectif {
+    background: #fff4d6;
+    border-left: 8px solid #e0a800;
+}
+
+.principe {
+    background: #e9f1fb;
+    border-left: 8px solid #1e6fb8;
+}
+
+.exercice1 {
+    background: #edf7ee;
+    border-left: 8px solid #2e7d32;
+}
+
+.exercice2 {
+    background: #fdecef;
+    border-left: 8px solid #c2185b;
+}
+
+/* TITRES */
+h2 {
+    margin-top: 0;
+    font-size: 23px;
+}
+
+/* LISTES */
+ul {
+    margin-left: 22px;
+}
+
+/* EXEMPLES */
+.exemple {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 18px 0;
+    border: 1px solid #ddd;
+}
+
+/* PHRASES */
+.phrase {
+    margin: 18px 0;
+    font-size: 18px;
+}
+
+/* CHAMPS */
+input {
+    width: 100%;
+    height: 42px;
+    font-size: 18px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1.5px solid #bbb;
+    padding: 6px 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #5a2d82;
+}
+
+/* MOTS FORTS */
+.mots-forts {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    color: #b0003a;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.actions a {
+    background-color: #1e6fb8;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+@media print {
+    .actions {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="fiche">
+
+    <div class="header">
+        <img src="Assets/logo-phare.jpeg" alt="Logo du programme pHARe">
+        <h1>Transformer une phrase simple en slogan</h1>
+        <img src="Assets/logo-duhamel.jpeg" alt="Logo du collège Georges Duhamel">
+    </div>
+
+    <div class="bloc objectif">
+        <h2>Objectif</h2>
+        Apprendre à rendre une phrase plus forte et plus courte.
+    </div>
+
+    <div class="bloc principe">
+        <h2>Principe</h2>
+        Un slogan =
+        <ul>
+            <li>peu de mots</li>
+            <li>un message clair</li>
+            <li>une idée qui frappe</li>
+        </ul>
+    </div>
+
+    <div class="bloc exercice1">
+        <h2>Exercice 1 : On raccourcit</h2>
+
+        <div class="exemple">
+            Le harcèlement scolaire fait beaucoup de mal aux élèves.<br>
+            → <strong>Le harcèlement fait mal.</strong>
+        </div>
+
+        <form autocomplete="off">
+            <div class="phrase">
+                1. Le harcèlement n’est pas quelque chose de drôle.
+                <input id="p1_ex1" type="search">
+            </div>
+
+            <div class="phrase">
+                2. Quand on harcèle quelqu’un, on lui fait du mal.
+                <input id="p1_ex2" type="search">
+            </div>
+        </form>
+    </div>
+
+    <div class="bloc exercice2">
+        <h2>Exercice 2 : On transforme en slogan</h2>
+
+        <div class="mots-forts">
+            STOP / NON / ASSEZ / JAMAIS / PARLE
+        </div>
+
+        <div class="phrase">
+            <input id="p1_slogan1" type="search">
+        </div>
+
+        <div class="phrase">
+            <input id="p1_slogan2" type="search">
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="page2.html">Aller à la page 2</a>
+    </div>
+
+</div>
+
+<script>
+// NOUVEL ÉLÈVE → on repart à zéro
+sessionStorage.clear();
+
+// Sauvegarde pendant le travail
+document.querySelectorAll("input").forEach(el => {
+    el.value = "";
+    el.addEventListener("input", () => {
+        sessionStorage.setItem(el.id, el.value);
+    });
+});
+</script>
+
+</body>
+</html>

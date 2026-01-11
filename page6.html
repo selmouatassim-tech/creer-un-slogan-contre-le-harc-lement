@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mon slogan final</title>
+
+<style>
+/* BASE */
+body {
+    font-family: Arial, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f2f4f8, #e3ebf5);
+    padding: 30px;
+    color: #222;
+}
+
+/* CONTENEUR */
+.fiche {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* EN-TÊTE AVEC LOGOS */
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.header img {
+    height: 70px;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #5a2d82;
+    margin: 0;
+}
+
+/* BLOCS COULEURS */
+.bloc {
+    border-radius: 14px;
+    padding: 22px;
+    margin: 28px 0;
+}
+
+.objectif {
+    background: #fff4d6;
+    border-left: 8px solid #e0a800;
+}
+
+.etapes {
+    background: #e9f1fb;
+    border-left: 8px solid #1e6fb8;
+}
+
+.final {
+    background: #edf7ee;
+    border-left: 8px solid #2e7d32;
+}
+
+/* TITRES */
+h2 {
+    margin-top: 0;
+    font-size: 23px;
+}
+
+/* PHRASES */
+.phrase {
+    margin: 18px 0;
+    font-size: 18px;
+}
+
+/* CHECKBOXES */
+.choix label {
+    display: inline-block;
+    margin-right: 25px;
+    font-size: 18px;
+}
+
+/* CHAMPS */
+input[type="text"], textarea {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1.5px solid #bbb;
+    padding: 6px 10px;
+}
+
+textarea {
+    height: 90px;
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5a2d82;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.actions a,
+.actions button {
+    background-color: #1e6fb8;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.actions button {
+    background-color: #5a2d82;
+}
+
+@media print {
+    .actions {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="fiche">
+
+    <div class="header">
+        <img src="Assets/logo-phare.jpeg" alt="Logo du programme pHARe">
+        <h1>Mon slogan final (création)</h1>
+        <img src="Assets/logo-duhamel.jpeg" alt="Logo du collège Georges Duhamel">
+    </div>
+
+    <div class="bloc objectif">
+        <h2>Objectif</h2>
+        Créer son propre slogan.
+    </div>
+
+    <div class="bloc etapes">
+        <h2>Étapes guidées</h2>
+
+        <div class="phrase">
+            <strong>1. Mon message :</strong><br>
+            <label><input type="checkbox" id="p6_stop"> Stop</label>
+            <label><input type="checkbox" id="p6_aide"> Aide</label>
+            <label><input type="checkbox" id="p6_respect"> Respect</label>
+            <label><input type="checkbox" id="p6_difference"> Différence</label>
+        </div>
+
+        <div class="phrase">
+            <strong>2. Mes mots clés :</strong>
+            <input id="p6_mot1" type="text">
+            <input id="p6_mot2" type="text">
+        </div>
+    </div>
+
+    <div class="bloc final">
+        <h2>3. Mon slogan final</h2>
+        <textarea id="p6_slogan"></textarea>
+    </div>
+
+    <div class="actions">
+        <a href="page5.html">Retour à la page 5</a>
+        <button onclick="location.href='bilan.html'">Générer le bilan final</button>
+    </div>
+
+</div>
+
+<script>
+// Lecture + écriture UNIQUEMENT dans sessionStorage
+document.querySelectorAll("input, textarea").forEach(el => {
+
+    if (el.type === "checkbox") {
+        el.checked = sessionStorage.getItem(el.id) === "true";
+        el.addEventListener("change", () => {
+            sessionStorage.setItem(el.id, el.checked);
+        });
+    } else {
+        el.value = sessionStorage.getItem(el.id) || "";
+        el.addEventListener("input", () => {
+            sessionStorage.setItem(el.id, el.value);
+        });
+    }
+
+});
+</script>
+
+</body>
+</html>
+
+
+
